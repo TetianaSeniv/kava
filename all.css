@@ -1,58 +1,65 @@
+/*
+  Common styles
+*/
+
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Courier New', Courier, monospace;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
+/*
+  Header
+*/
+
 header {
-    background-color: #EDD2B3;
-    
+  background-color: #EDD2B3;
 }
 
 header .container {
-    display: flex;
-    align-items: center;
-    font-size: 25px;
+  display: flex;
+  align-items: center;
+  font-size: 25px;
 }
 
 header .logo {
-    height: 120px;
+  height: 120px;
 }
 
 header .menu {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 header .social-links {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .social-links a {
-    text-decoration: none;
-    display: inline-block;
-    background-color: #000;
-    border-radius: 50%;
-    overflow: hidden;
-    width: 32px;
-    height: 32px;
-    text-align: center;
-    line-height: 32px;
-    color: #fff;
-    margin-left: 30px;
-    font-size: 15px;
+  text-decoration: none;
+  display: inline-block;
+  background-color: #000;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  line-height: 32px;
+  color: #fff;
+  margin-left: 30px;
+  font-size: 15px;
 }
 
 header .social-links a.search {
@@ -60,111 +67,117 @@ margin-right: 20px;
 }
 
 header ul {
-    list-style: none;
-    display: flex;
+  list-style: none;
+  display: flex;
 }
 
 header ul a {
-    padding: 0 15px;
-    color: #000;
-    font-size: 18px;
+  padding: 0 15px;
+  color: #000;
+  font-size: 18px;
 }
 
 header ul a:hover {
-    color: blue;
+  color: blue;
 }
 
+/*
+  Main
+*/
+
 .main-content {
-    display: flex;
-    align-items: flex-start;
-    margin-top: 40px;
-    margin-bottom: 40px;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .main-content main {
-    max-width: 70%;
-    flex: 1 0 70%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 15px;
-    grid-row-gap: 15px;
-    grid-auto-columns: minmax(50%, 50%);
-    padding-right: 15px;
-    }
+  max-width: 70%;
+  flex: 1 0 70%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  grid-auto-columns: minmax(50%, 50%);
+  padding-right: 15px;
+  }
 
 .article {
-    padding: 10px;
-    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
-    font-size: 16px;
+  padding: 10px;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  font-size: 16px;
 }
 
 .article .statistic {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .main-content aside {
-    border: 1px solid #8D8780;
-    flex: 1 0 30%;
-    height: auto;
-
-
+  border: 1px solid #8D8780;
+  flex: 1 0 30%;
+  height: auto;
 }
 
 .author h3 {
-    text-align: center;
-    font-size: 20px;
-    }
-    
+  text-align: center;
+  font-size: 20px;
+}
+  
 .author p {
-    text-indent: 1.5em;
-    text-align: justify;
-    padding: 0 10px;
+  text-indent: 1.5em;
+  text-align: justify;
+  padding: 0 10px;
 }
 
 aside .social-links {
-    text-align: center;
+  text-align: center;
 }
 
 .search-block .search {
-    text-decoration: none;
-    display: inline-block;
-    background-color: #000;
-    border-radius: 50%;
-    overflow: hidden;
-    width: 32px;
-    height: 32px;
-    text-align: center;
-    line-height: 32px;
-    color: #fff;
-    margin-left: 5px;
-    font-size: 15px;
+  text-decoration: none;
+  display: inline-block;
+  background-color: #000;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  line-height: 32px;
+  color: #fff;
+  margin-left: 5px;
+  font-size: 15px;
 }
 
 .search-block {
-    display: flex;
-    align-items: center;
-    margin-top: 50px;
-    margin-left: 20px;
-    margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+/*
+  Footer
+*/
+
+footer {
+  background-color: #EDD2B3;
 }
 
 footer .logo {
-    height: 120px;
-}
-
-footer {
-    background-color: #EDD2B3;
+  height: 120px;
 }
 
 footer .container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 footer .contact-info {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 footer .contact-info span {
-    padding-left: 15px;
+  padding-left: 15px;
 }
