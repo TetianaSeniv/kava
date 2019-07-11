@@ -46,60 +46,12 @@
         </div>
     </header>
     <div class="container main-content">
-        <main>
-            <div class="article">
-                <img src="assets/images/article1.jpg" alt="article 1">
-                <h2>Кава Флет Вайт / FLAT WHITE</h2>
-                <p>Напій з бархатистою ніжною текстурою і яскраво вираженим кавовим смаком. Флет Вайт придуманий зовсім недавно, в 80-х роках, новозеландським бариста, які шукали ідеальний баланс смаку кави і молока. В 90-х напій поширився в Австралії та новій Зеландії, став дуже популярний в Британії, де практично завоював всі мережі кав’ярень, а потім підкорив своїм смаком і всі інші країни.</p>
-                <div class="statistic">
-                    <span>08.07.19</span>
-                    <span>Коментарів: 25</span>
-                    <span>Рейтинг-8.0</span>
-                </div>
-            </div>  
-            <div class="article">
-                <img src="assets/images/article2.jpg" alt="article 2">
-                <h2>Афогато – кава, яку їдять ложкою</h2>
-                <p>Афогато – це десерт, який готується на основі ванільного морозива, залитого міцним і гарячим Еспресо. Деколи його розбавляють лікером, Бейлісом або Амаретто, додають шоколад або вершки, какао або горіхове морозиво, цедру апельсина або лимона. Їдять десерт за допомогою ложки.</p>
-                <div class="statistic">
-                    <span>07.07.19</span>
-                    <span>Коментарів: 38</span>
-                    <span>Рейтинг-7.8</span>
-                </div>
-            </div>
-            <div class="article">
-                <img src="assets/images/article3.jpg" alt="article 3">
-                <h2>Правила приготування кави в турці</h2>
-                <p>Ваша кава постійно виходить гіркою та схожа на звичайну розчинну, хоча ви варите її в турці? Тоді варто переглянути декілька важливих нюансів правильного приготування ароматного напою, щоб кожен ранок чи перерва на каву були чарівними.</p>
-                <div class="statistic">
-                    <span>08.07.19</span>
-                    <span>Коментарів: 88</span>
-                    <span>Рейтинг-10.0</span>
-                </div>
-            </div>
-            <div class="article">
-                <img src="assets/images/article4.jpg" alt="article 4">
-                <h2>Все про сорт: Арабіка Коста-Ріка</h2>
-                <p>Кава, яка відома своїми фруктово-шоколадними нотками, помірною гірчинкою та високим рівнем міцності – арабіка Коста-Ріка. В країнах СНД не вважається преміальним напоєм, проте не кожен знає, що в Коста-Ріка виготовляють виключно 100-% арабіку без домішок.</p>
-                <div class="statistic">
-                    <span>02.07.19</span>
-                    <span>Коментарів: 45</span>
-                    <span>Рейтинг-9.8</span>
-                </div>
-            </div>
-            <div class="article">
-                <img src="assets/images/article5.jpg" alt="article 5">
-                <h2>Рецепт кави Фрапе</h2>
-                <p>Кава фрапе – це літній охолоджувальний напій, гордість греків, який набирає в Україні шаленої популярності у літню пору.</p>
-                <div class="statistic">
-                    <span>05.07.19</span>
-                    <span>Коментарів: 43</span>
-                    <span>Рейтинг-6.1</span>
-                </div>
-            </div>
-            
-                     
-        </main>
+        <select onchange="onSortChange(this)" name="sortBy" id="sortBy">
+            <option value="none">None</option>
+            <option value="date:asc">Date (asc)</option>
+            <option value="date:desc">Date (desc)</option>
+        </select>
+        <main id="posts"></main>
         <aside>
             <div class="author">
                 <img src="assets/images/author.jpg" alt="author">
@@ -137,5 +89,7 @@
             </div>
         </div>
     </footer>
+    
+    <script src="main.js"></script>
 </body>
 </html>
