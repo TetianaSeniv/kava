@@ -1,20 +1,41 @@
 const url = 'https://api.myjson.com/bins/152f9j';
 
 let data = [];
+let sortedData = [];
 let page = 0;
 let pageSize = 10;
 
 function onSortChange(event) {
-  console.log(event)
+  const postsContainer = document.querySelector('#posts');
+  postsContainer.innerHTML = '';
+  page = 0;
+  sortData(event.value);
+  renderPosts();
+}
+
+function sortData(sortBy) {
+  if (!sortBy) {
+    return sortedData = data;
+  }
+
+  if (sortBy === 'date:desc') {
+    sortedData = [...data].sort((a, b) => {
+      return new Date(b.createdAt) - new Date(a.createdAt)
+    });
+    return;
+  }
+
+  sortedData = [...data].sort((a, b) => {
+    return new Date(a.createdAt) - new Date(b.createdAt)
+  });
 }
 
 function getPosts() {
   return fetch(url)
     .then(res => res.json())
     .then(res => {
-      data = res.data.sort((a, b) => {
-        return new Date(a.createdAt) - new Date(b.createdAt)
-      })
+      data = res.data;
+      sortedData = res.data;
     })
     .catch((error) => {
       console.log(JSON.stringify(error));
@@ -25,7 +46,7 @@ function renderPosts() {
   const postsContainer = document.querySelector('#posts');
   const firstIndex = page * pageSize;
   const lastIndex = (page + 1) * pageSize;
-  const pagedData = data.slice(firstIndex, lastIndex);
+  const pagedData = sortedData.slice(firstIndex, lastIndex);
   const posts = createPosts(pagedData);
   postsContainer.insertAdjacentHTML('beforeend', posts);
 }
