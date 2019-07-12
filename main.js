@@ -6,11 +6,20 @@ let page = 0;
 let pageSize = 10;
 
 function onSortChange(event) {
-  const postsContainer = document.querySelector('#posts');
-  postsContainer.innerHTML = '';
-  page = 0;
+  reset();
   sortData(event.value);
   renderPosts();
+}
+
+function onReset() {
+  reset();
+  renderPosts();
+}
+
+function reset() {
+  page = 0;
+  const postsContainer = document.querySelector('#posts');
+  postsContainer.innerHTML = '';
 }
 
 function sortData(sortBy) {
@@ -34,11 +43,23 @@ function getPosts() {
   return fetch(url)
     .then(res => res.json())
     .then(res => {
-      data = res.data;
-      sortedData = res.data;
+      const posts = res.data.map((item) => {
+        const date = new Date(item.createdAt);
+        return {
+          title: item.title,
+          description: item.description,
+          image: item.image,
+          tags: item.tags,
+          createdAt: date,
+          id: `post-${Math.abs(date.getTime())}`
+        }
+      });
+      
+      data = posts;
+      sortedData = posts;
     })
     .catch((error) => {
-      console.log(JSON.stringify(error));
+      console.error(JSON.stringify(error));
     });
 }
 
@@ -53,18 +74,26 @@ function renderPosts() {
 
 function createPost(post) {
   return `
-    <div class="article">
+    <div class="article" id="${post.id}">
       <img src="${post.image}" alt="post image">
       <h2>${post.title}</h2>
       <p>${post.description}</p>
       <div class="statistic">
-        <span>${post.createdAt}</span>
+        <span>${post.createdAt.toDateString()}</span>
         <span>${post.tags}</span>
       </div>
+      <button onclick="onDelete('${post.id}')">delete</button>
     </div>
   `;
 }
 
+function onDelete(id) {
+  const article = document.getElementById(id);
+  article.parentNode.removeChild(article);
+  data = data.filter((item) => {
+    return item.id !== id;
+  });
+}
 
 function createPosts(posts) {
   return posts.reduce((acc, curr) => acc += createPost(curr), '')
@@ -75,7 +104,6 @@ function setupScrollListener() {
     window.addEventListener('scroll', (event) => {
       if (window.scrollY > postsContainer.clientHeight - window.innerHeight / 2) {
         if (page < data.length / pageSize -1) {
-          console.log('current page', page)
           page += 1;
           renderPosts();
         }
